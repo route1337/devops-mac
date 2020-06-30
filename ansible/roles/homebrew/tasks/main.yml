@@ -1,0 +1,39 @@
+---
+#
+# Project:: macOS DevOps Configurator
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+# This role will install Homebrew packages commonly used for DevOps
+
+- name: Make sure homebrew is up to date
+  homebrew:
+    update_homebrew: yes
+
+- name: Tap some custom taps
+  homebrew_tap:
+    name: "{{ homebrew_taps }}"
+    state: present
+
+- name: Install osxfuse ahead of packages
+  homebrew_cask:
+    name: osxfuse
+    state: present
+    sudo_password: "{{ ansible_become_pass }}"
+
+- name: Install DevOps Homebrew packages
+  homebrew:
+    name: "{{ homebrew_packages }}"
+    state: present
+
+- name: Install DevOps Homebrew casks
+  homebrew_cask:
+    name: "{{ homebrew_casks }}"
+    state: present
+    sudo_password: "{{ ansible_become_pass }}"

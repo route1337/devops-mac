@@ -1,0 +1,33 @@
+---
+#
+# Project:: macOS DevOps Configurator
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+# Install and configure thefuck
+
+- name: Install thefuck
+  homebrew:
+    name: "thefuck"
+    state: present
+
+- name: Make sure thefuck custom rules directory exists
+  file:
+    path: "~/.thefuck/rules"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: staff
+    mode: 0755
+
+- name: Checkout my custom rules from git for root
+  git:
+    repo: https://github.com/ahrenstein/thefuck-rules.git
+    dest: "~/.thefuck/rules"
+    force: yes
+    depth: 1

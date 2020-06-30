@@ -1,0 +1,120 @@
+---
+#
+# Project:: macOS DevOps Configurator
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+# Deploy custom preferences meant for engineers
+
+- name: Set screen shot path to /Scratch
+  osx_defaults:
+    domain: com.apple.screencapture
+    type: string
+    state: present
+    key: location
+    value: "~/Scratch"
+
+- name: Re-enable holding a key down to repeat the character
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: bool
+    state: present
+    key: ApplePressAndHoldEnabled
+    value: false
+
+- name: Set keyboard tab to all controls
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: int
+    state: present
+    key: AppleKeyboardUIMode
+    value: 2
+
+- name: Change Notification Center timeout to 7 seconds
+  osx_defaults:
+    domain: com.apple.notificationcenterui
+    type: string
+    state: present
+    key: bannerTime
+    value: 7
+
+- name: Disable automatic capitalization
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: bool
+    state: present
+    key: NSAutomaticCapitalizationEnabled
+    value: false
+
+- name: Disable smart dashes
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: bool
+    state: present
+    key: NSAutomaticDashSubstitutionEnabled
+    value: false
+
+- name: Disable smart quotes
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: bool
+    state: present
+    key: NSAutomaticQuoteSubstitutionEnabled
+    value: false
+
+- name: Disable autocorrect
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: bool
+    state: present
+    key: NSAutomaticSpellingCorrectionEnabled
+    value: false
+
+# OMG Metric!
+- name: Set measurement to metric
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: bool
+    state: present
+    key: AppleMetricUnits
+    value: true
+
+- name: Set measurement unit to Centimeters
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: string
+    state: present
+    key: AppleMeasurementUnits
+    value: Centimeters
+
+- name: Set temperature to Celsius
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: string
+    state: present
+    key: AppleTemperatureUnit
+    value: 'Celsius'
+
+- name: Don't save .DS_Store files to network drives
+  osx_defaults:
+    domain: com.apple.desktopservices
+    type: bool
+    state: present
+    key: DSDontWriteNetworkStores
+    value: true
+
+- name: Enable Russian keyboard
+  osx_defaults:
+    domain: NSGlobalDomain
+    type: array
+    state: present
+    key: AppleLanguages
+    value:
+      - "en-US"
+      - "ru-US"

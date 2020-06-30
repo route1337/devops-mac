@@ -1,0 +1,35 @@
+---
+#
+# Project:: macOS DevOps Configurator
+#
+# Copyright 2020, Route 1337, LLC, All Rights Reserved.
+#
+# Maintainers:
+# - Matthew Ahrenstein: matthew@route1337.com
+#
+# See LICENSE
+#
+
+- hosts: localhost
+  vars_prompt:
+    - name: ansible_become_pass
+      prompt: "What is your Mac user password?"
+      private: yes
+      unsafe: yes
+    - name: full_name
+      prompt: "What's your full name?"
+      private: no
+    - name: email
+      prompt: "What's your email address?"
+      private: no
+      unsafe: yes
+    - name: gpg_short_id
+      prompt: "What's your GPG key's short ID?"
+      private: no
+  connection: local
+  roles:
+  - homebrew
+  - profile-common
+  - dot-files
+  - thefuck
+  - mac-tweaks
