@@ -108,13 +108,3 @@
     state: present
     key: DSDontWriteNetworkStores
     value: true
-
-- name: Enable Russian keyboard
-  osx_defaults:
-    domain: NSGlobalDomain
-    type: array
-    state: present
-    key: AppleLanguages
-    value:
-      - "en-US"
-      - "ru-US"

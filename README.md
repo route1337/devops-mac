@@ -120,8 +120,7 @@ This playbook includes the following roles:
     7. Set measurement units to Metric
     8. Set the temperature unit to Celsius
     9. Disable .DS_Store files on network volumes
-    10. Enable the Russian keyboard
-    11. Deploy my custom Terminal and set it as the default
+    10. Deploy my custom Terminal and set it as the default
 
 Third Party Tools
 -----------------

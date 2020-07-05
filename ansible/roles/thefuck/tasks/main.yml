@@ -19,7 +19,7 @@
 
 - name: Make sure thefuck custom rules directory exists
   file:
-    path: "~/.thefuck/rules"
+    path: "~/.config/thefuck/rules"
     state: directory
     owner: "{{ ansible_user_id }}"
     group: staff
@@ -28,6 +28,6 @@
 - name: Checkout my custom rules from git for root
   git:
     repo: https://github.com/ahrenstein/thefuck-rules.git
-    dest: "~/.thefuck/rules"
+    dest: "~/.config/thefuck/rules"
     force: yes
     depth: 1
