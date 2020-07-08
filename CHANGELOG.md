@@ -6,6 +6,7 @@ Version 0.1.1
 -------------
 
 1. Remove Russian language stuff for now
+2. The `master` branch is now called `main`
 
 Version 0.1.0
 ------------

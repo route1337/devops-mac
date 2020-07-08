@@ -12,7 +12,7 @@
 
 # Deploy custom preferences meant for engineers
 
-- name: Set screen shot path to /Scratch
+- name: Set screen shot path to ~/Scratch
   osx_defaults:
     domain: com.apple.screencapture
     type: string

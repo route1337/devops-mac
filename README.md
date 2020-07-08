@@ -101,7 +101,7 @@ This playbook includes the following roles:
         3. Clone [VagrantBoxes](https://github.com/route1337/VagrantBoxes) to `~/Vagrant`
         4. `~/Scratch` with 700 permissions
 3. dot-files (#TODO)
-    1. Deploys custom `~/.zshrc`
+    1. Deploys custom [~/.zshrc](https://github.com/ahrenstein/noodling)
     2. Deploys `~/.csshrc` (Configured to run csshX from a second Thunderbolt display)
     3. Deploys `~/.gitconfig` (PGP signing and LFS with variables prompted at run time)
     4. Deploys `~/.vimrc`
@@ -120,7 +120,7 @@ This playbook includes the following roles:
     7. Set measurement units to Metric
     8. Set the temperature unit to Celsius
     9. Disable .DS_Store files on network volumes
-    10. Deploy my custom Terminal and set it as the default
+    10. Deploy a custom DevOps Terminal and set it as the default
 
 Third Party Tools
 -----------------

@@ -14,7 +14,7 @@
 
 - name: Deploy custom user profile
   get_url:
-    url: https://raw.githubusercontent.com/ahrenstein/noodling/master/zsh/zshrc
+    url: https://raw.githubusercontent.com/ahrenstein/noodling/main/zsh/zshrc
     dest: "~/.zshrc"
     owner: "{{ ansible_user_id }}"
     group: staff
