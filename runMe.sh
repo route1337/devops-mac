@@ -88,6 +88,12 @@ else
     echo "Ansible already installed"
 fi
 
+echo "Deleting old versions of roles..."
+rm -rf ansible/roles/ahrenstein* ansible/roles/route1337*
+echo "Pulling new versions of dependency roles..."
+ansible-galaxy install -r ansible/roles/requirements.yml -p ./ansible/roles
+echo "Done."
+
 echo "Running the Ansible playbook mac-devops.yml"
 sudo -H -u ${ConsoleUser} /usr/local/bin/ansible-playbook -i ansible/local.inventory ansible/mac-devops.yml # --ask-become-pass
 ###END INSTALL AND RUN ANSIBLE ###

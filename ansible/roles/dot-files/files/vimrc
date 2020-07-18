@@ -1,6 +1,0 @@
-" Turn on syntax highlighting
-syntax on
-
-" Keep indentation on new line
-set autoindent
-
