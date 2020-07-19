@@ -17,9 +17,9 @@
       private: yes
       unsafe: yes
     - name: full_name
-        prompt: "What's your full name?"
-        private: no
-        register: full_name
+      prompt: "What's your full name?"
+      private: no
+      register: full_name
     - name: email
       prompt: "What's your email address?"
       private: no
