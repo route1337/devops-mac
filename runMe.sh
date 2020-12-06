@@ -89,15 +89,16 @@ else
     echo "Ansible already installed"
 fi
 
+echo "TEMPORARY: Installing collections..."
+sudo -H -u ${ConsoleUser} /usr/local/bin/ansible-galaxy collection install -r ansible/roles/requirements.yml
 echo "Deleting old versions of roles..."
 rm -rf ansible/roles/ahrenstein* ansible/roles/route1337*
 echo "Pulling new versions of dependency roles..."
-ansible-galaxy install -r ansible/roles/requirements.yml -p ./ansible/roles
+sudo -H -u ${ConsoleUser} ansible-galaxy install -r ansible/roles/requirements.yml -p ./ansible/roles
 echo "Done."
 
 echo "Running the Ansible playbook mac-devops.yml"
-/usr/sbin/chown -Rf ${ConsoleUser} /Users/${ConsoleUser}/.ansible
-sudo -H -u ${ConsoleUser} /usr/local/bin/ansible-playbook -i ansible/local.inventory ansible/mac-devops.yml # --ask-become-pass
+sudo -H -u ${ConsoleUser} /usr/local/bin/ansible-playbook -i ansible/local.inventory ansible/mac-devops.yml
 ###END INSTALL AND RUN ANSIBLE ###
 
 ### FINAL TWEAKS ###
