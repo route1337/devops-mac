@@ -2,6 +2,11 @@ macOS DevOps Configurator: Changelog
 ====================================
 A list of all the changes made to this repo and the code it contains
 
+Version 0.1.3
+-------------
+
+1. Minor changes to this repo to make it work with Big Sur (Intel)
+
 Version 0.1.2
 -------------
 
