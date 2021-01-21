@@ -2,6 +2,11 @@ macOS DevOps Configurator: Changelog
 ====================================
 A list of all the changes made to this repo and the code it contains
 
+Version 0.1.4
+-------------
+
+1. Minor changes to documentation regarding the Ansible role
+
 Version 0.1.3
 -------------
 
