@@ -6,6 +6,7 @@ Version 0.1.4
 -------------
 
 1. Minor changes to documentation regarding the Ansible role
+2. Removed temporary collections pull now that Ansible works with hyphenated brews again
 
 Version 0.1.3
 -------------

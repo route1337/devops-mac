@@ -35,7 +35,6 @@ TO DOs
 Just a few things left to do:
 
 1. ansible role for gems via rbenv
-2. Ansible 2.10.2+ currently breaks casks with hyphens in the name. A [manual pull](runMe.sh) of a collection fixes this.
 
 What will be done
 -----------------
