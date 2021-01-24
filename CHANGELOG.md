@@ -2,6 +2,12 @@ macOS DevOps Configurator: Changelog
 ====================================
 A list of all the changes made to this repo and the code it contains
 
+Version 0.1.4
+-------------
+
+1. Minor changes to documentation regarding the Ansible role
+2. Removed temporary collections pull now that Ansible works with hyphenated brews again
+
 Version 0.1.3
 -------------
 

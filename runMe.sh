@@ -89,8 +89,6 @@ else
     echo "Ansible already installed"
 fi
 
-echo "TEMPORARY: Installing collections..."
-sudo -H -u ${ConsoleUser} /usr/local/bin/ansible-galaxy collection install -r ansible/roles/requirements.yml
 echo "Deleting old versions of roles..."
 rm -rf ansible/roles/ahrenstein* ansible/roles/route1337*
 echo "Pulling new versions of dependency roles..."

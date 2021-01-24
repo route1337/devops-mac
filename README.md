@@ -12,6 +12,7 @@ following vendor IDs:
 | Oracle       | VB5E2TV963      | (ALL)                                  |
 | VMware       | EG7KH642X6      | (ALL)                                  |
 | Google       | EQHXZ8M8AV      | com.google.drivefs.filesystems.dfsfuse |
+| Rogue Amoeba | 7266XEXAPM      | /Library/Audio/Plug-Ins/HAL/ACE.driver |
 
 If these are not whitelisted ahead of running `sudo ./runMe.sh`, you may have to approve them as prompts come up. 
 This is due to some of the Homebrew casks that get installed.
@@ -20,7 +21,7 @@ Requirements
 ------------
 To configure a machine you must have the following:
 
-1. macOS Big Sur (11.0.1) or later (This may work on earlier versions but only the latest is tested)
+1. macOS Big Sur (11.1) or later (This may work on earlier versions, but only the latest is tested)
 2. The account you're using must be an Admin
 3. Internet access
 
@@ -34,7 +35,6 @@ TO DOs
 Just a few things left to do:
 
 1. ansible role for gems via rbenv
-2. Ansible 2.10.2+ currently breaks casks with hyphens in the name. A [manual pull](runMe.sh) of a collection fixes this.
 
 What will be done
 -----------------
