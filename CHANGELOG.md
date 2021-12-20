@@ -2,6 +2,11 @@ macOS DevOps Configurator: Changelog
 ====================================
 A list of all the changes made to this repo and the code it contains
 
+Version 0.2.0
+-------------
+
+1. Apple Silicon support
+
 Version 0.1.4
 -------------
 

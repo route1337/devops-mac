@@ -10,6 +10,15 @@
 # See LICENSE
 #
 
+# Check if Apple Silicon
+if [ "$(uname -m)" == "arm64" ]; then
+	  IS_ARM=1
+	  BREW_BIN_PATH="/opt/homebrew/bin"
+else
+	  IS_ARM=0
+	  BREW_BIN_PATH="/usr/local/bin"
+fi
+
 # Only permit root to run this script
 if [[ "$(id -u)" -ne 0 ]]; then
         echo 'This script must be run by root' >&2
@@ -56,22 +65,29 @@ fi
 ### INSTALL HOMEBREW ###
 echo "Checking if Homebrew is installed..."
 if test ! "$(sudo -u ${ConsoleUser} which brew)"; then
-    echo "Installing Homebrew..."
-    /bin/mkdir -p /usr/local/bin
-    /bin/chmod u+rwx /usr/local/bin
-    /bin/chmod g+rwx /usr/local/bin
-    /bin/mkdir -p /usr/local/etc /usr/local/include /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Homebrew /usr/local/Frameworks
-    /bin/chmod 755 /usr/local/share/zsh /usr/local/share/zsh/site-functions
-    /bin/chmod g+rwx /usr/local/bin /usr/local/etc /usr/local/include /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Homebrew /usr/local/Frameworks
-    /bin/chmod 755 /usr/local/share/zsh /usr/local/share/zsh/site-functions
-    /usr/sbin/chown ${ConsoleUser} /usr/local/bin /usr/local/etc /usr/local/include /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Homebrew /usr/local/Frameworks
-    /usr/bin/chgrp admin /usr/local/bin /usr/local/etc /usr/local/include /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Homebrew /usr/local/Frameworks
-    /bin/mkdir -p /Users/${ConsoleUser}/Library/Caches/Homebrew
-    /bin/chmod g+rwx /Users/${ConsoleUser}/Library/Caches/Homebrew
-    /usr/sbin/chown ${ConsoleUser} /Users/${ConsoleUser}/Library/Caches/Homebrew
-    /bin/mkdir -p /Library/Caches/Homebrew
-    /bin/chmod g+rwx /Library/Caches/Homebrew
-    /usr/sbin/chown ${ConsoleUser} /Library/Caches/Homebrew
+    if [[ "$IS_ARM" == 0 ]];then
+      echo "Installing x86_64 Homebrew..."
+      /bin/mkdir -p /usr/local/bin
+      /bin/chmod u+rwx /usr/local/bin
+      /bin/chmod g+rwx /usr/local/bin
+      /bin/mkdir -p /usr/local/etc /usr/local/include /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Homebrew /usr/local/Frameworks
+      /bin/chmod 755 /usr/local/share/zsh /usr/local/share/zsh/site-functions
+      /bin/chmod g+rwx /usr/local/bin /usr/local/etc /usr/local/include /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Homebrew /usr/local/Frameworks
+      /bin/chmod 755 /usr/local/share/zsh /usr/local/share/zsh/site-functions
+      /usr/sbin/chown ${ConsoleUser} /usr/local/bin /usr/local/etc /usr/local/include /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Homebrew /usr/local/Frameworks
+      /usr/bin/chgrp admin /usr/local/bin /usr/local/etc /usr/local/include /usr/local/lib /usr/local/sbin /usr/local/share /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Homebrew /usr/local/Frameworks
+      /bin/mkdir -p /Users/${ConsoleUser}/Library/Caches/Homebrew
+      /bin/chmod g+rwx /Users/${ConsoleUser}/Library/Caches/Homebrew
+      /usr/sbin/chown ${ConsoleUser} /Users/${ConsoleUser}/Library/Caches/Homebrew
+      /bin/mkdir -p /Library/Caches/Homebrew
+      /bin/chmod g+rwx /Library/Caches/Homebrew
+      /usr/sbin/chown ${ConsoleUser} /Library/Caches/Homebrew
+    else:
+      echo "Installing arm64 Homebrew..."
+      /bin/mkdir -p /opt/homebrew
+      /bin/chmod u+rwx /opt/homebrew
+      /usr/sbin/chown ${ConsoleUser} /opt/homebrew
+    fi
     sudo -H -u ${ConsoleUser} /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     echo "Disabling Homebrew analytics..."
     sudo -H -iu ${ConsoleUser} /usr/local/bin/brew analytics off
@@ -84,7 +100,7 @@ fi
 echo "Checking if Ansible is installed..."
 if test ! "$(sudo -u ${ConsoleUser} which ansible)"; then
     echo "Installing Ansible..."
-    sudo -H -u ${ConsoleUser} brew install ansible
+    sudo -H -u ${ConsoleUser} ${BREW_BIN_PATH}/brew install ansible
 else
     echo "Ansible already installed"
 fi
@@ -92,11 +108,11 @@ fi
 echo "Deleting old versions of roles..."
 rm -rf ansible/roles/ahrenstein* ansible/roles/route1337*
 echo "Pulling new versions of dependency roles..."
-sudo -H -u ${ConsoleUser} ansible-galaxy install -r ansible/roles/requirements.yml -p ./ansible/roles
+sudo -H -u ${ConsoleUser} ${BREW_BIN_PATH}/ansible-galaxy install -r ansible/roles/requirements.yml -p ./ansible/roles
 echo "Done."
 
 echo "Running the Ansible playbook mac-devops.yml"
-sudo -H -u ${ConsoleUser} /usr/local/bin/ansible-playbook -i ansible/local.inventory ansible/mac-devops.yml
+sudo -H -u ${ConsoleUser} ${BREW_BIN_PATH}/ansible-playbook -i ansible/local.inventory ansible/mac-devops.yml
 ###END INSTALL AND RUN ANSIBLE ###
 
 ### FINAL TWEAKS ###
