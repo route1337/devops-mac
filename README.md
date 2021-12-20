@@ -1,27 +1,26 @@
 macOS DevOps Configurator
 =========================
-This repository contains scripts and Ansible roles to configure macOS 10.15+ for DevOps usage.  
+This repository contains scripts and Ansible roles to configure macOS 12.1+ for DevOps usage.  
 
 MDM
 ---
-This repository is tested against machines enrolled in MDM with a configuration profile that whitelists system extensions from the
+This repository is tested against machines enrolled in MDM with a configuration profile that allowlists system extensions from the
 following vendor IDs:
 
 | Vendor Name  | Team ID         | KEXT IDs                               |
 |--------------|-----------------|----------------------------------------|
 | Oracle       | VB5E2TV963      | (ALL)                                  |
 | VMware       | EG7KH642X6      | (ALL)                                  |
-| Google       | EQHXZ8M8AV      | com.google.drivefs.filesystems.dfsfuse |
 | Rogue Amoeba | 7266XEXAPM      | /Library/Audio/Plug-Ins/HAL/ACE.driver |
 
-If these are not whitelisted ahead of running `sudo ./runMe.sh`, you may have to approve them as prompts come up. 
+If these are not allowlisted ahead of running `sudo ./runMe.sh`, you may have to approve them as prompts come up. 
 This is due to some of the Homebrew casks that get installed.
 
 Requirements
 ------------
 To configure a machine you must have the following:
 
-1. macOS Big Sur (11.1) or later (This may work on earlier versions, but only the latest is tested)
+1. macOS Big Sur (12.1) or later (This may work on earlier versions, but only the latest is tested)
 2. The account you're using must be an Admin
 3. Internet access
 
