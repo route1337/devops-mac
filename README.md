@@ -61,8 +61,8 @@ Testing
 -------
 This project is manually tested in a clean install of macOS in VMware Fusion.  
 
-Donate To Support These Vagrant Boxes
--------------------------------------
+Donate To Support This Project
+------------------------------
 Route 1337, LLC operates entirely on donations. If you find these Vagrant boxes useful, please consider using the GitHub Sponsors button to show your continued support.
 
 Thank you for your support!
