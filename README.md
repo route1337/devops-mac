@@ -63,7 +63,7 @@ This project is manually tested in a clean install of macOS in VMware Fusion.
 
 Donate To Support This Project
 ------------------------------
-Route 1337, LLC operates entirely on donations. If you find this project useful, please consider using the GitHub Sponsors button to show your continued support.
+Route 1337 LLC's open source code heavily relies on donations. If you find this project useful, please consider using the GitHub Sponsors button to show your continued support.
 
 Thank you for your support!
 
