@@ -9,18 +9,17 @@ following vendor IDs:
 
 | Vendor Name  | Team ID         | KEXT IDs                               |
 |--------------|-----------------|----------------------------------------|
-| Oracle       | VB5E2TV963      | (ALL)                                  |
 | VMware       | EG7KH642X6      | (ALL)                                  |
 | Rogue Amoeba | 7266XEXAPM      | /Library/Audio/Plug-Ins/HAL/ACE.driver |
 
-If these are not allowlisted ahead of running `sudo ./runMe.sh`, you may have to approve them as prompts come up. 
-This is due to some of the Homebrew casks that get installed.
+If these are not allowlisted ahead of running `sudo ./runMe.sh`, you may have to approve them as prompts come up.  
+Additionally, on Apple Silicon computers you must [enable Reduced Security ahead of running this to allow the Rogue Amoeba apps to install](https://rogueamoeba.com/support/knowledgebase/?showArticle=ACE-StepByStep).
 
 Requirements
 ------------
 To configure a machine you must have the following:
 
-1. macOS Big Sur (12.1) or later (This may work on earlier versions, but only the latest is tested)
+1. macOS Monterey (12.1) or later (This may work on earlier versions, but only the latest is tested)
 2. The account you're using must be an Admin
 3. Internet access
 
