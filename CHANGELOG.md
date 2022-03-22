@@ -5,7 +5,7 @@ A list of all the changes made to this repo and the code it contains
 Version 0.3.0
 -------------
 
-1. Fixing XCode installation functions
+1. Fixing Xcode installation functions
 2. Fixing ConsoleUser detection logic
 
 Version 0.2.0
