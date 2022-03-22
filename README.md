@@ -20,7 +20,7 @@ Requirements
 ------------
 To configure a machine you must have the following:
 
-1. macOS Big Sur (12.1) or later (This may work on earlier versions, but only the latest is tested)
+1. macOS Monterey (12.1) or later (This may work on earlier versions, but only the latest is tested)
 2. The account you're using must be an Admin
 3. Internet access
 
