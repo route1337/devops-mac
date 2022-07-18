@@ -104,7 +104,7 @@ if test ! "$(sudo -u ${ConsoleUser} which brew)"; then
     fi
     sudo -H -u ${ConsoleUser} /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     echo "Disabling Homebrew analytics..."
-    sudo -H -iu ${ConsoleUser} /usr/local/bin/brew analytics off
+    sudo -H -iu ${ConsoleUser} ${BREW_BIN_PATH}/brew analytics off
 else
     echo "Homebrew already installed."
 fi

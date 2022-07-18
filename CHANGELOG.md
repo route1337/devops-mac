@@ -2,6 +2,11 @@ macOS DevOps Configurator: Changelog
 ====================================
 A list of all the changes made to this repo and the code it contains
 
+Version 0.3.1
+-------------
+
+1. Fixing some architecture detection
+
 Version 0.3.0
 -------------
 
