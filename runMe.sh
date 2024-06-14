@@ -24,7 +24,7 @@ else
   ConsoleUser="$(/usr/bin/python -c 'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; import sys; username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]; username = [username,""][username in [u"loginwindow", None, u""]]; sys.stdout.write(username + "\n");')"
 fi
 
-echo "This script will configure macOS 11+ for DevOps."
+echo "This script will configure macOS 14+ for DevOps."
 echo "You will be prompted for your password during several steps!"
 read -p "Press [ENTER] to install and configure this Mac for development use!"
 
