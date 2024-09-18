@@ -4,7 +4,8 @@ A list of all the changes made to this repo and the code it contains
 
 Version 0.3.3
 -------------
-1. Fixes for Sequoia
+
+1. Fix for Sequoia Xcode CLI tools installation
 
 Version 0.3.2
 -------------
